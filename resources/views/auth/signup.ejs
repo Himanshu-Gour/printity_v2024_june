@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- todo addding meta -->
+<!-- todo flash work displaying error and putting value in input using flash -->
+
+<head>
+    <meta charset="UTF-8" />
+    <title>
+        <%= title %>
+    </title>
+    <meta name="description" content="  <%=description%> ">
+    <meta name="keywords" content="<%=keyword%>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/app.css" />
+</head>
+
+<body>
+    <section id="signup">
+        <a class="go_back_cta" href="/"><i class="fas fa-arrow-left"></i> Home </a>
+        <img class="auth_background_img" src="/images/svg/auth/register.svg" alt="register to printity">
+        <h1 class="auth_logo">print<span style="color: #43A047;">it</span>y</h1>
+        <form action="/signup" method="POST" class="auth_form">
+            <h1 class="primary_heading">sign up
+            </h1>
+            <!-- <span>all feilds are required</span> -->
+
+            <% if(messages ) { %>
+                <span class="text-red-500 text-sm">
+                    <%=messages.error%>
+                </span>
+                <% }%>
+
+                    <input class="auth_input" name="name" value="<%=messages.name%>" placeholder="Enter Your name"
+                        type="text">
+                    <input class="auth_input" name="email" value="<%=messages.email%>" placeholder="Enter Your Email"
+                        type="email">
+                    <input class="auth_input" name="phoneNumber" value="<%=messages.phoneNumber%>"
+                        placeholder="Enter Your phone number" type="tel">
+                    <input class="auth_input" name="password" placeholder="Enter Your Password" type="password">
+                    <input class="auth_input" name="confirmPassword" placeholder="Confirm Your Password"
+                        type="password">
+                    <div class="auth_option v_center">
+                        <p class="secondary_para">
+                            have an account <a href="/login"><span style="color: #43A047;">Login</span></a>
+                        </p>
+                    </div>
+                    <button type="submit" class="primary_btn">sign up</button>
+        </form>
+
+        <script src="/js/app.js"></script>
+    </section>
+
+</body>
+
+</html>

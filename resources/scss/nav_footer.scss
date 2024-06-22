@@ -1,0 +1,239 @@
+@import "./variables";
+@import "./utility.scss";
+#fit {
+  height: $nav_height;
+}
+nav {
+  padding: 0rem 3rem;
+  height: $nav_height;
+  width: 100%;
+  background-color: $pure;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0rem 0.2rem 1.2rem 0rem rgba(0, 0, 0, 0.05);
+  position: fixed;
+  z-index: 1;
+}
+
+nav #left_nav {
+  display: flex;
+  justify-content: center;
+}
+#nav_logo {
+  color: $dark;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+#user_profile_img {
+  margin: 0rem;
+}
+
+nav #right_nav {
+  text-transform: capitalize;
+}
+.primary_ul {
+  display: flex;
+  align-items: center;
+  color: $dark;
+}
+.primary_ul li {
+  margin-right: 2rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.primary_ul li a img {
+  height: 2.6rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#right_nav ul #profile_drop_down {
+  position: absolute;
+  top: 5.2rem;
+  right: 4.2rem;
+  background: $pure;
+  padding: 0.8rem 0.8rem 0.4rem 0.8rem;
+  display: none;
+  width: 12rem;
+  border: 0.5px solid #ddd;
+  // box-shadow: 0rem 0rem 0.2rem $grey;
+}
+#profile_drop_down ul {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+#profile_drop_down ul li {
+  justify-content: center;
+  color: $grey;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0.2rem 0.1rem;
+  transition: $smooth;
+}
+#profile_drop_down ul li i {
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+#profile_drop_down ul li:hover {
+  color: $dark;
+}
+#profile_drop_down::after {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  // left: 78%;
+  right: 1.5rem;
+  z-index: -1;
+  height: 1rem;
+  width: 1rem;
+  transform: translateX(-50%);
+  transform: rotate(45deg);
+  border: 1px solid #ddd;
+  background-color: #ddd;
+  opacity: 0.5;
+}
+// footer css---------------------------------------------------------------
+
+#footer {
+  margin-top: auto;
+  background-color: $dark;
+  position: relative;
+  padding: 2% 5%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+#footer_content {
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+#footer_head {
+  // background-color: green;
+  color: $pure;
+  // border-bottom: 0.1px solid $grey;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+}
+
+// footer logo --------------------------------------------------------
+#footer_logo {
+  font-size: 2rem;
+  font-weight: 800;
+}
+// footer slogan --------------------------------------------------------
+#footer_slogon {
+  height: 40%;
+  width: 70%;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $pure;
+  text-transform: capitalize;
+}
+
+// footer social ---------------------------------------------------------
+#footer_social {
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: $grey;
+  text-transform: capitalize;
+}
+#footer_social ul li a i {
+  margin-top: 1.2%;
+  color: $grey;
+  font-size: 1.8rem;
+  margin-right: 2%;
+}
+#footer_social ul li a i:hover {
+  color: $pure;
+  transition: $smooth;
+}
+
+// footer bottom ----------------------------------------------------
+
+#footer_bottom {
+  // margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  border-top: 0.1px solid $grey;
+  padding-top: 2%;
+  // background-color: red;
+}
+#footer_bottom ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#copyright {
+  color: $grey;
+  font-size: 0.8rem;
+}
+.footer_item {
+  color: $grey;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+}
+.footer_item:hover {
+  color: $pure;
+  transition: $smooth;
+}
+
+#footer::before {
+  content: "";
+  height: 16rem;
+  width: 16rem;
+  border-radius: 25%;
+  border: 0.2rem solid $dark_border;
+  position: absolute;
+  top: 10rem;
+  left: -13rem;
+  opacity: 0.4;
+  animation: box-r 20s infinite;
+  animation-direction: reverse;
+}
+
+#footer::after {
+  content: "";
+  height: 16rem;
+  width: 16rem;
+  border-radius: 25%;
+  border: 0.2rem solid #373737;
+  position: absolute;
+  bottom: 7rem;
+  right: -12rem;
+  opacity: 0.4;
+  animation: box-r 20s infinite forwards;
+}
+@keyframes box-r {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+/* triangle */
+.drp_box::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 45%;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border-top: 10px solid #fff;
+  border-right: 10px solid #fff;
+  transform: rotate(-45deg);
+}

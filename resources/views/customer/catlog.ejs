@@ -1,0 +1,73 @@
+<section class="product_page_container universal_grid">
+  <div id="product_opt" class="v_center">
+    <button onclick="show_cat()" id="select_category_btn">select category <i class="fas fa-chevron-down"></i></button>
+    <ul id="choose_product">
+      <% category.forEach(function(category) { %>
+        <a href="#<%=category.id%>">
+          <li class="choose_product_li">
+            <%=category.name%>
+          </li>
+        </a>
+        <% })%>
+    </ul>
+
+
+
+
+
+
+
+
+
+  </div>
+  <%category.forEach(function(category) { %>
+    <div class="product_content" id="<%=category.id%>">
+      <h1 class="secondary_heading_underline">
+        <%=category.name%> &nbsp;&nbsp;
+      </h1>
+      <div class="product_card_container  grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 ">
+        <%product.forEach(function(product) { %>
+          <%if (category.name==product.category) { %>
+            <div class="product_card w-full md:w-80">
+              <a href="/products/<%=category.name%>/<%=product.unicode%>"><img
+                  src="images/product_images/product_page_img/<%=product.title%> 1.png" alt="<%=product.title%>" /></a>
+              <div class="product_name_header h_v_center">
+                <a href="/products/<%=category.name%>/<%=product.unicode%>">
+                  <h1>
+                    <%=product.title%>
+                  </h1>
+                </a>
+                <%if (product.subname) { %>
+                  <a href="/products/<%=category.name%>/<%=product.unicode%>">
+                    <p>
+                      (<%=product.subname%>)
+                    </p>
+                  </a>
+                  <% } %>
+              </div>
+            </div>
+            <% } %>
+              <% })%>
+      </div>
+    </div>
+    <% })%>
+</section>
+<script>
+  function show_cat() {
+    let btn = document.querySelector("#select_category_btn");
+    let cat_ul = document.querySelector("#choose_product");
+    if (cat_ul.style.display === "none") {
+      cat_ul.style.display = "block";
+    } else if (cat_ul.style.display === "block") {
+      cat_ul.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target == btn || event.target == cat_ul) {
+        cat_ul.style.display = "block";
+      } else {
+        cat_ul.style.display = "none";
+      }
+    }
+  }
+</script>

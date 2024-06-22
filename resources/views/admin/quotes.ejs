@@ -1,0 +1,492 @@
+<section class="full_page_quote_section universal_grid">
+    <% if(messages.success) { %>
+        <div id="success-alert" class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3"
+            role="alert">
+            <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path
+                    d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+            </svg>
+            <p>
+                <%= messages.success %>
+            </p>
+        </div>
+        <% }else if (messages.fail){ %>
+            <div id="success-alert" class="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3"
+                role="alert">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path
+                        d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+                </svg>
+                <p>
+                    <%= messages.fail%>
+                </p>
+            </div>
+            <% }%>
+                <div id="myquotes_vtab_content">
+                    <% if(quotes.length) { %>
+
+                        <% quotes.forEach((quotes)=> { %>
+                        
+                            <div class="quote universal_grid">
+                                <div class="quote_page_overview">
+
+                                    <div id="quote_product_image">
+                                        <img src="/images/product_images/product_page_img/<%=quotes.quote.title%> 1.png"
+                                            alt="<%=quotes.quote.title%>">
+                                    </div>
+                                    <div class="quote_info">
+                                        <h1 class="secondary_heading">
+                                            <%=(quotes.quote.job_name)%>
+                                        </h1>
+                                    </div>
+
+
+                                </div>
+                                <div class="quote_accordian">
+                                    <button class="accordion__button" title="view quote">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div id="quote_job_detail">
+                                            <% if(quotes.quote.category=="folded carton" ) { %>
+
+
+                                                <!-- job_name  -->
+                                                <h1 class="job_card_name secondary_heading">
+                                                    <%=quotes.quote.job_name%>
+                                                </h1>
+                                                <!-- product name   -->
+                                                <h1 class="secondary_heading">
+                                                    <%=quotes.quote.title%><span class="product_unicode_heading">
+                                                            <%=quotes.quote.unicode%>
+                                                        </span>
+                                                </h1>
+                                                <!-- paper board  -->
+                                                <h1 class="secondary_heading">
+                                                    paper board : <%=quotes.quote.paper_board%>
+                                                </h1>
+                                                <!-- lwh  -->
+                                                <h1 class="secondary_heading">
+                                                    size : <%=(quotes.quote.lenght)%>&nbsp;<span
+                                                            class="product_unicode_heading">l</span>&nbsp;x
+                                                        <%=(quotes.quote.width)%>&nbsp;<span
+                                                                class="product_unicode_heading">w</span>&nbsp; x
+                                                            <%=(quotes.quote.height)%>&nbsp;<span
+                                                                    class="product_unicode_heading">h</span>
+                                                </h1>
+                                                <!-- gsm  -->
+                                                <h1 class="secondary_heading">
+                                                    gsm : <%=quotes.quote.gsm%>
+                                                </h1>
+                                                <!-- printitng  type  -->
+                                                <h1 class="secondary_heading">
+                                                    print type : <%=quotes.quote.printing_type%>
+                                                </h1>
+                                                <!-- pms and color  -->
+                                                <h1 class="secondary_heading">
+                                                    color : <%if (!quotes.quote.pms_color) { %>
+                                                        <%=quotes.quote.cmyk%>
+                                                            &nbsp;&nbsp;&nbsp;
+                                                            <% } else{%>
+                                                                <%=quotes.quote.cmyk%>
+                                                                    with <%=quotes.quote.pms_color%> special colors
+                                                                        <% } %>
+                                                </h1>
+
+                                                <!-- quantity  -->
+                                                <h1 class="secondary_heading">
+                                                    quantity : <%=quotes.quote.quantity%>
+                                                </h1>
+
+
+                                                <!-- coatings  -->
+                                                <div id="optional_badges">
+
+
+                                                    <%if (quotes.quote.coating) { %>
+                                                        <% quotes.quote.coating.forEach(function(customization) { %>
+                                                            <span class="customization_name_single">
+                                                                <%=customization%>
+                                                            </span>
+                                                            <% })%>
+                                                                <%} %>
+                                                                    <%if (quotes.quote.optional_customization) { %>
+                                                                        <% quotes.quote.optional_customization.forEach(function(customization)
+                                                                            { %>
+                                                                            <span class="customization_name_single">
+                                                                                <%=customization%>
+                                                                            </span>
+                                                                            <% })%>
+                                                                                <%} %>
+                                                                                    <%if (quotes.quote.optional_finishing_packaging)
+                                                                                        { %>
+                                                                                        <% quotes.quote.optional_finishing_packaging.forEach(function(customization)
+                                                                                            { %>
+                                                                                            <span
+                                                                                                class="customization_name_single">
+                                                                                                <%=customization%>
+                                                                                            </span>
+                                                                                            <% })%>
+                                                                                                <%} %>
+
+                                                </div>
+
+
+
+                                                <% } else if (quotes.quote.category=="label & sticker" ) { %>
+                                                    <div>
+                                                        <!-- job_name  -->
+                                                        <h1 class="job_card_name secondary_heading">
+                                                            <%=quotes.quote.job_name%>
+                                                        </h1>
+                                                        <!-- product name   -->
+                                                        <h1 class="secondary_heading">
+                                                            <%=quotes.quote.title%><span
+                                                                    class="product_unicode_heading">
+                                                                    <%=quotes.quote.unicode%>
+                                                                </span>
+                                                        </h1>
+
+                                                        <!-- paper board  -->
+                                                        <h1 class="secondary_heading">
+                                                            paper board : <%=quotes.quote.paper_board%>
+                                                        </h1>
+                                                        <!-- lw   -->
+                                                        <h1 class="secondary_heading">
+                                                            size : <%=(quotes.quote.lenght)%>&nbsp;<span
+                                                                    class="product_unicode_heading">l</span>&nbsp; x
+                                                                <%=(quotes.quote.width)%>&nbsp;<span
+                                                                        class="product_unicode_heading">w</span>&nbsp;
+                                                        </h1>
+
+                                                        <!-- printitng  type  -->
+                                                        <h1 class="secondary_heading">
+                                                            print type : <%=quotes.quote.printing_type%>
+                                                        </h1>
+                                                        <!-- pms and color  -->
+                                                        <h1 class="secondary_heading">
+                                                            color : <%if (!quotes.quote.pms_color) { %>
+                                                                <%=quotes.quote.cmyk%>
+                                                                    &nbsp;&nbsp;&nbsp;
+                                                                    <% } else{%>
+                                                                        <%=quotes.quote.cmyk%>
+                                                                            <%if (quotes.quote.cmyk) { %>
+                                                                                with <% } %>
+                                                                                    <%=quotes.quote.pms_color%> special
+                                                                                        colors
+                                                                                        <% } %>
+                                                        </h1>
+                                                        <!-- cutting   -->
+                                                        <%if (quotes.quote.title=="sticker" ) { %>
+
+                                                            <h1 class="secondary_heading">
+                                                                cutting type: <%=quotes.quote.label_cut_type%>
+                                                            </h1>
+                                                            <% }%>
+                                                                <!-- gsm in paper label  -->
+                                                                <%if (quotes.quote.title=="paper label" ) { %>
+
+                                                                    <h1 class="secondary_heading">
+                                                                        gsm: <%=quotes.quote.gsm%>
+                                                                    </h1>
+                                                                    <% }%>
+
+                                                                        <!-- quantity  -->
+                                                                        <h1 class="secondary_heading">
+                                                                            quantity : <%=quotes.quote.quantity%>
+                                                                        </h1>
+
+                                                                        <!-- coatings  -->
+                                                                        <div id="optional_badges">
+
+
+                                                                            <%if (quotes.quote.coating) { %>
+                                                                                <% quotes.quote.coating.forEach(function(customization)
+                                                                                    { %>
+                                                                                    <span
+                                                                                        class="customization_name_single">
+                                                                                        <%=customization%>
+                                                                                    </span>
+                                                                                    <% })%>
+                                                                                        <%} %>
+                                                                                            <%if (quotes.quote.optional_customization)
+                                                                                                { %>
+                                                                                                <% quotes.quote.optional_customization.forEach(function(customization)
+                                                                                                    { %>
+                                                                                                    <span
+                                                                                                        class="customization_name_single">
+                                                                                                        <%=customization%>
+                                                                                                    </span>
+                                                                                                    <% })%>
+                                                                                                        <%} %>
+                                                                                                            <%if (quotes.quote.optional_finishing_packaging)
+                                                                                                                { %>
+                                                                                                                <% quotes.quote.optional_finishing_packaging.forEach(function(customization)
+                                                                                                                    { %>
+                                                                                                                    <span
+                                                                                                                        class="customization_name_single">
+                                                                                                                        <%=customization%>
+                                                                                                                    </span>
+                                                                                                                    <%
+                                                                                                                        })%>
+                                                                                                                        <%}
+                                                                                                                            %>
+
+                                                                        </div>
+
+
+                                                    </div>
+                                                    <% }else if(quotes.quote.category=="corrugated " ){ %>
+                                                        <div>
+                                                            <!-- job_name  -->
+                                                            <h1 class="job_card_name secondary_heading">
+                                                                <%=quotes.quote.job_name%>
+                                                            </h1>
+                                                            <!-- product name   -->
+                                                            <h1 class="secondary_heading">
+                                                                <%=quotes.quote.title%><span
+                                                                        class="product_unicode_heading">
+                                                                        <%=quotes.quote.unicode%>
+                                                                    </span>
+                                                            </h1>
+                                                            <!-- paper board  -->
+                                                            <h1 class="secondary_heading">
+                                                                paper board : <%=quotes.quote.paper_board%>
+                                                            </h1>
+                                                            <!-- lwh  -->
+                                                            <h1 class="secondary_heading">
+                                                                size : <%=(quotes.quote.lenght)%>&nbsp;<span
+                                                                        class="product_unicode_heading">l</span>&nbsp;x
+                                                                    <%=(quotes.quote.width)%>&nbsp;<span
+                                                                            class="product_unicode_heading">w</span>&nbsp;
+                                                                        x
+                                                                        <%=(quotes.quote.height)%>&nbsp;<span
+                                                                                class="product_unicode_heading">h</span>
+                                                            </h1>
+                                                            <!-- top paper bf and gsm  -->
+                                                            <h1 class="secondary_heading">
+                                                                top paper : <%=quotes.quote.top_paper%> &nbsp; &nbsp;
+                                                                    b/f : <%=quotes.quote.top_paper_bf%> &nbsp; &nbsp;
+                                                                        gsm : <%=quotes.quote.top_paper_gsm%>
+                                                            </h1>
+                                                            <!-- middle paper bf and gsm  -->
+                                                            <h1 class="secondary_heading">
+                                                                middle paper : <%=quotes.quote.middle_paper%> &nbsp;
+                                                                    &nbsp;
+                                                                    b/f : <%=quotes.quote.middle_paper_bf%> &nbsp;
+                                                                        &nbsp;
+                                                                        gsm : <%=quotes.quote.middle_paper_gsm%>
+                                                            </h1>
+                                                            <!-- inner paper bf and gsm  -->
+                                                            <h1 class="secondary_heading">
+                                                                inner paper : <%=quotes.quote.inner_paper%> &nbsp;
+                                                                    &nbsp;
+                                                                    b/f : <%=quotes.quote.inner_paper_bf%> &nbsp; &nbsp;
+                                                                        gsm : <%=quotes.quote.inner_paper_gsm%>
+                                                            </h1>
+                                                            <!-- printitng  type  -->
+                                                            <h1 class="secondary_heading">
+                                                                print type : <%=quotes.quote.printing_type%>
+                                                            </h1>
+                                                            <!-- bottom  type  -->
+                                                            <% if(quotes.quote.title=="regular box" ) { %>
+
+                                                                <h1 class="secondary_heading">
+                                                                    bottom type : <%=quotes.quote.bottom_type%>
+                                                                </h1>
+                                                                <% } %>
+
+                                                                    <!-- pms and color  -->
+                                                                    <h1 class="secondary_heading">
+                                                                        color : <%if (!quotes.quote.pms_color) { %>
+                                                                            <%=quotes.quote.cmyk%>
+                                                                                &nbsp;&nbsp;&nbsp;
+                                                                                <% } else{%>
+                                                                                    <%=quotes.quote.cmyk%>
+                                                                                        with <%=quotes.quote.pms_color%>
+                                                                                            special
+                                                                                            colors
+                                                                                            <% } %>
+                                                                    </h1>
+
+                                                                    <!-- quantity  -->
+                                                                    <h1 class="secondary_heading">
+                                                                        quantity : <%=quotes.quote.quantity%>
+                                                                    </h1>
+
+
+
+                                                                    <!-- coatings  -->
+                                                                    <div id="optional_badges">
+
+
+                                                                        <%if (quotes.quote.coating) { %>
+                                                                            <% quotes.quote.coating.forEach(function(customization)
+                                                                                { %>
+                                                                                <span class="customization_name_single">
+                                                                                    <%=customization%>
+                                                                                </span>
+                                                                                <% })%>
+                                                                                    <%} %>
+                                                                                        <%if (quotes.quote.optional_customization)
+                                                                                            { %>
+                                                                                            <% quotes.quote.optional_customization.forEach(function(customization)
+                                                                                                { %>
+                                                                                                <span
+                                                                                                    class="customization_name_single">
+                                                                                                    <%=customization%>
+                                                                                                </span>
+                                                                                                <% })%>
+                                                                                                    <%} %>
+                                                                                                        <%if (quotes.quote.optional_finishing_packaging)
+                                                                                                            { %>
+                                                                                                            <% quotes.quote.optional_finishing_packaging.forEach(function(customization)
+                                                                                                                { %>
+                                                                                                                <span
+                                                                                                                    class="customization_name_single">
+                                                                                                                    <%=customization%>
+                                                                                                                </span>
+                                                                                                                <% })%>
+                                                                                                                    <%}
+                                                                                                                        %>
+
+                                                                    </div>
+
+
+                                                        </div>
+                                                        <% }else if
+                                                            (quotes.quote.category=="instruction manual & leaflet" ){ %>
+
+                                                            <div>
+                                                                <!-- job_name  -->
+                                                                <h1 class="job_card_name secondary_heading">
+                                                                    <%=quotes.quote.job_name%>
+                                                                </h1>
+                                                                <!-- product name   -->
+                                                                <h1 class="secondary_heading">
+                                                                    <%=quotes.quote.title%><span
+                                                                            class="product_unicode_heading">
+                                                                            <%=quotes.quote.unicode%>
+                                                                        </span>
+                                                                </h1>
+                                                                <!-- paper board  -->
+                                                                <h1 class="secondary_heading">
+                                                                    paper board : <%=quotes.quote.paper_board%>
+                                                                </h1>
+                                                                <!-- lw  -->
+                                                                <h1 class="secondary_heading">
+                                                                    size : <%=(quotes.quote.lenght)%>&nbsp;<span
+                                                                            class="product_unicode_heading">l</span>&nbsp;x
+                                                                        <%=(quotes.quote.width)%>&nbsp;<span
+                                                                                class="product_unicode_heading">w</span>&nbsp;
+                                                                </h1>
+                                                                <!-- gsm  -->
+                                                                <h1 class="secondary_heading">
+                                                                    gsm : <%=quotes.quote.gsm%>
+                                                                </h1>
+
+                                                                <!-- number of color  -->
+                                                                <h1 class="secondary_heading">
+                                                                    number of color : <%=quotes.quote.no_of_color%>
+                                                                </h1>
+                                                                <!-- printed faces -->
+                                                                <h1 class="secondary_heading">
+                                                                    printed faces : <%=quotes.quote.printed_faces%>
+                                                                </h1>
+                                                                <!-- folds faces -->
+                                                                <h1 class="secondary_heading">
+                                                                    number of folds : <%=quotes.quote.folds%>
+                                                                </h1>
+
+                                                                <!-- color  -->
+                                                                <%if (quotes.quote.multicolor=="yes" ) { %>
+                                                                    <h1 class="secondary_heading">
+                                                                        color : multicolor
+
+
+                                                                    </h1>
+                                                                    <% } %>
+
+                                                                        <!-- quantity  -->
+                                                                        <h1 class="secondary_heading">
+                                                                            quantity : <%=quotes.quote.quantity%>
+                                                                        </h1>
+
+                                                                        <!-- coatings  -->
+                                                                        <div id="optional_badges">
+
+
+                                                                            <%if (quotes.quote.coating) { %>
+                                                                                <% quotes.quote.coating.forEach(function(customization)
+                                                                                    { %>
+                                                                                    <span
+                                                                                        class="customization_name_single">
+                                                                                        <%=customization%>
+                                                                                    </span>
+                                                                                    <% })%>
+                                                                                        <%} %>
+                                                                                            <%if (quotes.quote.optional_customization)
+                                                                                                { %>
+                                                                                                <% quotes.quote.optional_customization.forEach(function(customization)
+                                                                                                    { %>
+                                                                                                    <span
+                                                                                                        class="customization_name_single">
+                                                                                                        <%=customization%>
+                                                                                                    </span>
+                                                                                                    <% })%>
+                                                                                                        <%} %>
+                                                                                                            <%if (quotes.quote.optional_finishing_packaging)
+                                                                                                                { %>
+                                                                                                                <% quotes.quote.optional_finishing_packaging.forEach(function(customization)
+                                                                                                                    { %>
+                                                                                                                    <span
+                                                                                                                        class="customization_name_single">
+                                                                                                                        <%=customization%>
+                                                                                                                    </span>
+                                                                                                                    <%
+                                                                                                                        })%>
+                                                                                                                        <%}
+                                                                                                                            %>
+
+                                                                        </div>
+
+
+                                                            </div>
+                                                            <% } %>
+
+                                        </div>
+                                        <div class="quote_form_section">
+                                            <form method="POST" action="quotes">
+                                                <input name="rate" class="admin_quote_input" placeholder="Enter rate"
+                                                    type="text">
+
+                                                <div class="final_order_btn">
+                                                    <button data-quoterate="<%=JSON.stringify(quotes)%>"
+                                                        class="primary_btn quote_rates_data">
+                                                        send quote
+                                                    </button>
+
+                                                </div>
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <% }) %>
+                                <% } else { %>
+                                    <div class=" empty_cart">
+                                        <img src="/images/svg/utility/empty_quote.svg" alt="">
+                                        <h1 class="primary_heading">
+                                            you dont have any quote for now
+                                        </h1>
+
+                                    </div>
+                                    <%}%>
+
+
+                </div>
+</section>

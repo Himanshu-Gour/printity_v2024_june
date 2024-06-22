@@ -1,0 +1,162 @@
+<!-- repetetive code section  -->
+<!-- < %- body %>  where you want enject nonne repetetive code -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <!-- font awesome line awesome  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+
+  <meta name="description" content="  <%=description%> ">
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app.css" />
+  <meta name="google-site-verification" content="TM5F7HmH_nA1YGqQpKIRqBzA7UJ-2zOhR6B09s00aLo" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BY3EMZE9L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-6BY3EMZE9L');
+  </script>
+
+  <title>
+    <%= title %>
+  </title>
+
+</head>
+
+<body>
+  <div id="fit"></div>
+  <nav>
+    <div id="left_nav">
+      <a href="/">
+        <h1 id="nav_logo">
+          print<span style="color: #43A047;">it</span>y
+        </h1>
+      </a>
+    </div>
+    <div id="right_nav">
+      <ul class="primary_ul">
+        <%if (user) { %>
+
+          <li><a href="/products">products</a></li>
+          <%if (user.role=="admin" ) { %>
+            <li><a href="/admin/orders">orders</a></li>
+            <li><a href="/admin/quotes">quotes</a></li>
+            <% } else { %>
+              <li><a href="/orders">orders</a></li>
+              <%}%>
+                <!-- <li><a href="/services">services</a></li> -->
+                <li id="user_profile_img">
+                  <a> <img src="/images/logo/ptt logo light.png" alt="" /> </a>
+                </li>
+                <% } else { %>
+                  <li><a href="/products">products</a></li>
+
+                  <li><a href="/orders">orders</a></li>
+
+                  <!-- <li><a href="/services">services</a></li> -->
+                  <li id="user_profile_img">
+                    <a> <img src="/images/logo/ptt logo light.png" alt="" /> </a>
+                  </li>
+                  <%}%>
+
+                    <div id="profile_drop_down">
+                      <ul>
+                        <!-- todo doing nav dynamics vd-7 -->
+                        <li><a href="/profile">profile</a></li>
+                        <li><a href="/dashboard">dashboard</a></li>
+                        <!-- <li><a href="/">settings</a></li> -->
+                        <li><a href="/">help & support</a></li>
+                        <%if (user) { %>
+                          <hr />
+                          <li>
+                            <form id="logout" action="/logout" method="POST">
+                              <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
+                            </form>
+                          </li>
+                          <% } else { %>
+                            <hr />
+                            <li><a href="/login">login</a></li>
+                            <li class="ml-6"><a href="/signup">signup</a></li>
+                            <%}%>
+
+                      </ul>
+                    </div>
+      </ul>
+    </div>
+  </nav>
+
+  <%- body %>
+    <footer id="footer">
+      <div id="footer_content">
+
+        <div id="footer_head">
+
+          <div id="footer_logo">
+            <h1>PRINT<span style="color: #43A047;">IT</span>Y</h1>
+          </div>
+
+          <div id="footer_slogon">
+            <h1>
+              use paper to save the enviroment ; <br> Paper Is Forever !!
+
+            </h1>
+          </div>
+          <div id="footer_social">
+            <h1>connect with us!.</h1>
+            <ul>
+              <li>
+                <a href="https://www.instagram.com/printity.co/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://in.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div id="footer_bottom">
+          <div id="copyright">
+            <h1>
+              &#169; printity. all rights reserved.
+            </h1>
+          </div>
+          <ul>
+            <li class="footer_item">
+              <a href="/refund-policy">refund policy</a>
+            </li>
+            <li class="footer_item">
+              <a href="terms-conditions">terms and conditions</a>
+            </li>
+            <li class="footer_item">
+              <a href="/privacy-policy">privacy policy</a>
+            </li>
+            <li class="footer_item"><a href="/sitemap">sitemap</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </footer>
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+</body>
+
+
+</html>

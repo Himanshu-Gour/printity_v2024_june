@@ -1,0 +1,915 @@
+<!-- FilePond styles -->
+
+<section id="product_detail_page" class="universal_grid">
+    <%detail.forEach(function(product) { %>
+
+        <div id="product_detail">
+            <h1 class="product_name">
+                <%=product.title%>
+            </h1>
+            <h6 class="product_unicode_heading">
+                <%=product.unicode%>
+            </h6>
+        </div>
+        <div id="product_property_and_display">
+            <div id="product_images">
+                <div class="product_img_container">
+
+                    <img id="imageBox" src="/images/product_images/product_page_img/<%=product.title%> 1.png"
+                        alt="<%=product.title%>">
+                </div>
+                <div class="product_thumb_container">
+                    <div class="product-thumb-img">
+                        <img src="/images/product_images/product_page_img/<%=product.title%> 1.png"
+                            onclick="product_img(this)" alt="<%=product.title%>">
+                        <img src="/images/product_images/product_page_img/<%=product.title%> 2.png"
+                            onclick="product_img(this)" alt="<%=product.title%> ">
+                        <% if(product.category=="folded carton" || product.category=="corrugated " ) { %>
+                            <% if(product.title=="corrugated shipper box" ) { %>
+                                <% } else{%>
+                                    <img src="/images/product_images/product_page_img/<%=product.title%> 3.jpg"
+                                        onclick="product_img(this)" alt="<%=product.title%> dieline">
+                                    <% } %>
+                                        <% } %>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div id="product_description">
+                <ul>
+                    <li class="product_description_paragraph">
+                        product can be inserted form top and bottom sides.
+                    </li>
+                    <li class="product_description_paragraph">
+                        ideal for number of industries such as pharmaceuticals,households,electronics etc.
+                    </li>
+                    <li class="product_description_paragraph">
+                        pefect option for the machine filling or for hand filling
+                    </li>
+
+
+                </ul>
+            </div> -->
+            <div id="product_customization">
+                <form id="main-form" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" class="randomToken" name="randomToken" value="<%= randomToken %>">
+                    <% if (messages.error) { %>
+                        <div class="text-red-500 text-sm">
+                            <%= messages.error %>
+                        </div>
+                        <% } %>
+                            <div id="job_name" class="customization_info_section">
+                                <div class="product_customization_header">
+                                    <h1 class="secondary_heading ">job name</h1>
+                                </div>
+                                <div class=" v_center customization_value_option ">
+                                    <div class="name_value_inputs job_name">
+                                        <label class="customization_name" for="job_name_input"> job name </label>
+                                        <input name="job_name" type="text" id="job_name_input"
+                                            placeholder="enter job name">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="size_customization" class="customization_info_section">
+                                <div class="product_customization_header">
+                                    <h1 class="secondary_heading">size <span class="light_dark_span">(mm)</span>
+                                    </h1>
+                                </div>
+                                <div class=" v_center customization_value_option ">
+                                    <div class="customization_value_inputs lenght">
+                                        <label class="customization_name" for="length"> length </label>
+                                        <input name="lenght" type="text" id="length" placeholder="mm"
+                                            class="customization_input_text">
+                                    </div>
+                                    <div class="customization_value_inputs width">
+                                        <label class="customization_name" for="width"> width </label>
+                                        <input name="width" type="text" placeholder="mm" id="width"
+                                            class="customization_input_text">
+                                    </div>
+                                    <%if (product.category=="folded carton" || product.category=="corrugated " ) { %>
+                                        <div class="customization_value_inputs height">
+                                            <label class="customization_name" for="height"> height </label>
+                                            <input name="height" type="text" placeholder="mm" id="height"
+                                                class="customization_input_text">
+                                        </div>
+                                        <% } %>
+                                </div>
+                            </div>
+                            <%if (product.category=="folded carton" || product.category=="corrugated " ||
+                                product.category=="label & sticker" ) { %>
+                                <div id="categories_customization" class="customization_info_section">
+                                    <div class="product_customization_header">
+                                        <h1 class="secondary_heading">categories</h1>
+                                    </div>
+                                    <div class=" v_center customization_value_option ">
+
+                                        <div class="customization_value_inputs tick_checkbox mattellic">
+                                            <input type="radio" value="mattellic" name="printing_type" id="mattellic">
+                                            <label class="customization_name tick_checkbox_label"
+                                                for="mattellic">mattellic</label>
+                                        </div>
+
+                                        <%if (product.category=="folded carton" ) { %>
+
+                                            <div class="customization_value_inputs tick_checkbox normal ">
+                                                <input type="radio" value="normal" checked name="printing_type"
+                                                    id="normal">
+                                                <label class="customization_name tick_checkbox_label"
+                                                    for="normal">normal</label>
+                                            </div>
+                                            <% } %>
+                                                <%if (product.category=="corrugated " ) { %>
+                                                    <div class="customization_value_inputs tick_checkbox screen ">
+                                                        <input type="radio" value="screen" name="printing_type"
+                                                            id="screen">
+                                                        <label class="customization_name tick_checkbox_label"
+                                                            for="screen">screen</label>
+                                                    </div>
+                                                    <div class="customization_value_inputs tick_checkbox cmyk_cat ">
+                                                        <input type="radio" value="cmyk" name="printing_type" checked
+                                                            id="cmyk_cat">
+                                                        <label class="customization_name tick_checkbox_label"
+                                                            for="cmyk_cat">cmyk</label>
+                                                    </div>
+                                                    <% } %>
+                                                        <%if (product.category=="label & sticker" ) { %>
+
+                                                            <div
+                                                                class="customization_value_inputs tick_checkbox cmyk_cat ">
+                                                                <input type="radio" value="cmyk" name="printing_type"
+                                                                    checked id="cmyk_cat">
+                                                                <label class="customization_name tick_checkbox_label"
+                                                                    for="cmyk_cat">cmyk</label>
+                                                            </div>
+                                                            <% } %>
+
+                                    </div>
+                                </div>
+                                <%}%>
+
+                                    <div id="paper_board_customization" class="customization_info_section">
+                                        <%if (product.category=="corrugated " ) { %>
+                                            <div class="product_customization_header">
+                                                <h1 class="secondary_heading">top paper</h1>
+                                            </div>
+                                            <div class=" v_center customization_value_option ">
+                                                <div class="customization_value_inputs paper_board">
+                                                    <label class="customization_name" for="paper_board">top
+                                                        paper</label>
+                                                    <select name="cg_top_paper_board" id="paper_board"
+                                                        class="customization_input_text">
+                                                        <option value="virgin craft paper liner">virgin craft paper
+                                                            liner
+                                                        </option>
+                                                        <option value="regular brown kraft">regular brown kraft</option>
+                                                        <option value="regular colored kraft">regular colored kraft
+                                                        </option>
+                                                        <option value="duplex">duplex</option>
+                                                    </select>
+                                                </div>
+                                                <div class="customization_value_inputs paper_board_gsm">
+                                                    <label class="customization_name" for="paper_board_gsm">gsm</label>
+                                                    <select name="cg_top_paper_gsm" id="paper_board_gsm"
+                                                        class="customization_input_text">
+                                                        <option value="120">120</option>
+                                                        <option value="160">160</option>
+                                                        <option value="180">180</option>
+                                                        <option value="200">200</option>
+                                                        <option value="230">230</option>
+                                                        <option value="250">250</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="customization_value_inputs paper_board_br">
+                                                    <label class="customization_name" for="cg_bf_top">b/f</label>
+                                                    <select name="cg_bf_top" id="cg_bf_top"
+                                                        class="customization_input_text">
+                                                        <option value="16+">16+</option>
+                                                        <option value="18+">18+</option>
+                                                        <option value="20+">20+</option>
+                                                        <option value="25+">25+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="product_customization_header">
+                                                <h1 class="secondary_heading">middle paper</h1>
+                                            </div>
+                                            <div class=" v_center customization_value_option ">
+                                                <div class="customization_value_inputs paper_board">
+                                                    <label class="customization_name" for="middle_paper">middle
+                                                        paper</label>
+                                                    <select name="cg_middle_paper_board" id="middle_paper"
+                                                        class="customization_input_text">
+                                                        <option value="regular brown">regular brown</option>
+                                                        <option value="regular colored">regular colored</option>
+                                                    </select>
+                                                </div>
+                                                <div class="customization_value_inputs paper_board_gsm">
+                                                    <label class="customization_name" for="paper_board_gsm">gsm</label>
+                                                    <select name="cg_middle_paper_gsm" id="paper_board_gsm"
+                                                        class="customization_input_text">
+                                                        <option value="120">120</option>
+                                                        <option value="160">160</option>
+                                                        <option value="180">180</option>
+                                                        <option value="200">200</option>
+                                                        <option value="230">230</option>
+                                                        <option value="250">250</option>
+
+                                                    </select>
+                                                </div>
+                                                <div class="customization_value_inputs paper_board_br">
+                                                    <label class="customization_name" for="cg_bf_middle">b/f</label>
+                                                    <select name="cg_bf_middle" id="cg_bf_middle"
+                                                        class="customization_input_text">
+                                                        <option value="16+">16+</option>
+                                                        <option value="18+">18+</option>
+                                                        <option value="20+">20+</option>
+                                                        <option value="25+">25+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="product_customization_header">
+                                                <h1 class="secondary_heading">inner paper</h1>
+                                            </div>
+                                            <div class=" v_center customization_value_option ">
+                                                <div class="customization_value_inputs paper_board">
+                                                    <label class="customization_name" for="inner_paper">inner
+                                                        paper</label>
+                                                    <select name="cg_inner_paper_board" id="inner_paper"
+                                                        class="customization_input_text">
+                                                        <option value="regular brown">regular brown</option>
+                                                        <option value="regular colored">regular colored</option>
+                                                    </select>
+                                                </div>
+                                                <div class="customization_value_inputs paper_board_gsm">
+                                                    <label class="customization_name" for="paper_board_gsm">gsm</label>
+                                                    <select name="cg_inner_paper_gsm" id="paper_board_gsm"
+                                                        class="customization_input_text">
+                                                        <option value="120">120</option>
+                                                        <option value="160">160</option>
+                                                        <option value="180">180</option>
+                                                        <option value="200">200</option>
+                                                        <option value="230">230</option>
+                                                        <option value="250">250</option>
+
+                                                    </select>
+                                                </div>
+                                                <div class="customization_value_inputs paper_board_br">
+                                                    <label class="customization_name" for="cg_bf_inner">b/f</label>
+                                                    <select name="cg_bf_inner" id="cg_bf_inner"
+                                                        class="customization_input_text">
+                                                        <option value="16+">16+</option>
+                                                        <option value="18+">18+</option>
+                                                        <option value="20+">20+</option>
+                                                        <option value="25+">25+</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <%if (product.title=="regular box" ) { %>
+                                                <div class="product_customization_header">
+                                                    <h1 class="secondary_heading">bottom type</h1>
+                                                </div>
+                                                <div class=" v_center customization_value_option ">
+                                                    <div class="customization_value_inputs paper_board">
+                                                        <label class="customization_name"
+                                                            for="regular_cg_bottom_type">inner
+                                                            paper</label>
+                                                        <select name="regular_cg_bottom_type"
+                                                            id="regular_cg_bottom_type"
+                                                            class="customization_input_text">
+                                                            <option value="tuck end bottom">tuck end bottom</option>
+                                                            <option value="auto lock bottom">lock bottom</option>
+                                                        </select>
+                                                    </div>
+
+
+                                                </div>
+                                                <%}%>
+                                                    <% }else{%>
+                                                        <div class="product_customization_header">
+                                                            <%if (product.category=="label & sticker" ||
+                                                                product.category=="instruction manual & leaflet" ) { %>
+                                                                <h1 class="secondary_heading">paper</h1>
+                                                                <% }else{%>
+                                                                    <h1 class="secondary_heading">paper board</h1>
+                                                                    <% }%>
+                                                        </div>
+                                                        <div class=" v_center customization_value_option ">
+                                                            <div class="customization_value_inputs paper_board">
+                                                                <%if (product.category=="label & sticker" ||
+                                                                    product.category=="instruction manual & leaflet" ) {
+                                                                    %>
+                                                                    <label class="customization_name"
+                                                                        for="paper_board">paper</label>
+                                                                    <% }else{%>
+                                                                        <label class="customization_name"
+                                                                            for="paper_board">paper
+                                                                            board</label>
+                                                                        <% }%>
+                                                                            <%if (product.category=="folded carton" ) {
+                                                                                %>
+                                                                                <select name="paper_board"
+                                                                                    id="paper_board"
+                                                                                    class="customization_input_text">
+                                                                                    <option value="fbb">fbb</option>
+                                                                                    <option value="white back">white
+                                                                                        back
+                                                                                    </option>
+                                                                                    <option value="gray back">gray back
+                                                                                    </option>
+                                                                                </select>
+                                                                                <% } %>
+                                                                                    <%if (product.category=="label & sticker"
+                                                                                        ) { %>
+                                                                                        <select name="paper_board"
+                                                                                            id="paper"
+                                                                                            class="customization_input_text">
+                                                                                            <%if (product.title=="roll sticker"
+                                                                                                ) { %>
+
+                                                                                                <option
+                                                                                                    value="art paper">
+                                                                                                    art
+                                                                                                    paper
+                                                                                                </option>
+
+                                                                                                <%} else if
+                                                                                                    (product.title=="paper label"
+                                                                                                    ) {%>
+                                                                                                    <option
+                                                                                                        value="mirror">
+                                                                                                        mirror
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="chromo">
+                                                                                                        chromo
+                                                                                                    </option>
+
+                                                                                                    </option>
+
+                                                                                                    <%}else{%>
+                                                                                                        <option
+                                                                                                            value="paper">
+                                                                                                            paper
+                                                                                                        </option>
+                                                                                                        <option
+                                                                                                            value="opaque">
+                                                                                                            opaque
+                                                                                                        </option>
+                                                                                                        <option
+                                                                                                            value="transparent">
+                                                                                                            transparent
+                                                                                                        </option>
+                                                                                                        <% }%>
+                                                                                        </select>
+
+                                                                                        <% }%>
+                                                                                            <%if (product.category=="instruction manual & leaflet"
+                                                                                                ) { %>
+                                                                                                <select
+                                                                                                    name="paper_board"
+                                                                                                    id="paper"
+                                                                                                    class="customization_input_text">
+                                                                                                    <option
+                                                                                                        value="maplitho">
+                                                                                                        maplitho
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="art paper">
+                                                                                                        art
+                                                                                                        paper
+                                                                                                    </option>
+                                                                                                </select>
+                                                                                                <% }%>
+                                                            </div>
+                                                            <div class="customization_value_inputs paper_board_gsm">
+                                                                <%if ( product.category=="instruction manual & leaflet"
+                                                                    || product.category=="folded carton" ) { %>
+                                                                    <label class="customization_name"
+                                                                        for="paper_board_gsm">gsm</label>
+                                                                    <% }%>
+                                                                        <%if (product.category=="folded carton" ) { %>
+                                                                            <select name="paper_board_gsm"
+                                                                                id="paper_board_gsm"
+                                                                                class="customization_input_text">
+                                                                                <option value="230">230</option>
+                                                                                <option value="250">250</option>
+                                                                                <option value="270">270</option>
+                                                                                <option value="300">300</option>
+                                                                                <option value="320">320</option>
+                                                                                <option value="340">340</option>
+                                                                                <option value="380">380</option>
+                                                                                <option value="400">400</option>
+                                                                            </select>
+                                                                            <% } %>
+
+
+                                                                                <%if (
+                                                                                    product.category=="instruction manual & leaflet"
+                                                                                    ) { %>
+                                                                                    <select name="paper_board_gsm"
+                                                                                        id="paper_board_gsm"
+                                                                                        class="customization_input_text">
+                                                                                        <option value="70">70</option>
+                                                                                        <option value="90">90</option>
+                                                                                        <option value="120">120</option>
+
+                                                                                    </select>
+                                                                                    <% }%>
+                                                                                        <%if (
+                                                                                            product.category=="label & sticker"
+                                                                                            ) { %>
+                                                                                            <%if (
+                                                                                                product.title=="paper label"
+                                                                                                ) { %>
+                                                                                                <label
+                                                                                                    class="customization_name"
+                                                                                                    for="paper_board_gsm">gsm</label>
+                                                                                                <select
+                                                                                                    name="paper_board_gsm"
+                                                                                                    id="paper_board_gsm"
+                                                                                                    class="customization_input_text">
+                                                                                                    <option value="70">
+                                                                                                        70
+                                                                                                    </option>
+                                                                                                    <option value="90">
+                                                                                                        90
+                                                                                                    </option>
+                                                                                                </select>
+                                                                                                <% }%>
+                                                                                                    <% }%>
+                                                            </div>
+                                                        </div>
+                                                        <%}%>
+                                    </div>
+
+                                    <div id="printing_customization" class="customization_info_section">
+                                        <div class="product_customization_header">
+                                            <%if (product.category=="folded carton" || product.category=="corrugated " )
+                                                { %>
+                                                <h1 class="secondary_heading">printing</h1>
+                                                <% }%>
+                                                    <%if (product.category=="label & sticker" ) { %>
+                                                        <%if (product.title=="roll sticker" ) { %>
+
+                                                            <h1 class="secondary_heading">optional color</h1>
+                                                            <%}else{%>
+                                                                <%if (product.title=="paper label" ) { %>
+                                                                    <h1 class="secondary_heading">optional color</h1>
+                                                                    <%}else{%>
+                                                                        <h1 class="secondary_heading">cutting and color
+                                                                        </h1>
+                                                                        <% }%>
+                                                                            <% }%>
+                                                                                <% }%>
+                                                                                    <%if (product.category=="instruction manual & leaflet"
+                                                                                        ) { %>
+                                                                                        <h1 class="secondary_heading">
+                                                                                            printing ,faces
+                                                                                            and
+                                                                                            fold</h1>
+                                                                                        <% }%>
+                                        </div>
+                                        <div class=" v_center customization_value_option ">
+                                            <%if (product.category=="folded carton" || product.category=="corrugated " )
+                                                { %>
+                                                <div class="customization_value_inputs tick_checkbox cmyk">
+                                                    <input type="checkbox" checked value="cmyk" name="cmyk" id="cmyk">
+                                                    <label class="customization_name tick_checkbox_label"
+                                                        for="cmyk">cmyk</label>
+                                                </div>
+                                                <% }%>
+                                                    <%if (product.category=="instruction manual & leaflet" ) { %>
+                                                        <div class="customization_value_inputs no_of_color">
+                                                            <label class="customization_name" for="no_of_color">number
+                                                                of
+                                                                color</label>
+                                                            <select name="no_of_color" id="no_of_color"
+                                                                class="customization_input_text">
+                                                                <option value="na">na</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                            </select>
+                                                        </div>
+                                                        <div
+                                                            class="customization_value_inputs tick_checkbox multicolor">
+                                                            <input type="checkbox" name="multicolor" id="multicolor">
+                                                            <label class="customization_name tick_checkbox_label"
+                                                                for="multicolor">multicolor</label>
+                                                        </div>
+                                                        <%}%>
+                                                            <%if (product.category=="label & sticker" ) { %>
+                                                                <%if (product.title=="roll sticker" ) { %>
+
+                                                                    <%}else{%>
+                                                                        <%if (product.title=="paper label" ) { %>
+                                                                            <%}else{%>
+                                                                                <div
+                                                                                    class="customization_value_inputs label_cut_type">
+                                                                                    <label class="customization_name"
+                                                                                        for="label_cut_type">cutting
+                                                                                        type</label>
+                                                                                    <select name="label_cut_type"
+                                                                                        id="label_cut_type"
+                                                                                        class="customization_input_text">
+                                                                                        <option value="die cut">die cut
+                                                                                        </option>
+                                                                                        <option value="regular cut">
+                                                                                            regular
+                                                                                            cut
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <%}%>
+                                                                                    <%}%>
+                                                                                        <%}%>
+                                                                                            <%if (product.category=="label & sticker"
+                                                                                                ||
+                                                                                                product.category=="folded carton"
+                                                                                                ||
+                                                                                                product.category=="corrugated "
+                                                                                                ) { %>
+                                                                                                <div
+                                                                                                    class="customization_value_inputs pms_color">
+                                                                                                    <label
+                                                                                                        class="customization_name"
+                                                                                                        for="pms_color">pms
+                                                                                                        color</label>
+                                                                                                    <select
+                                                                                                        name="pms_color"
+                                                                                                        id="pms_color"
+                                                                                                        class="customization_input_text">
+                                                                                                        <%if (product.category=="instruction manual & leaflet"
+                                                                                                            ) { %>
+                                                                                                            <option
+                                                                                                                value="0">
+                                                                                                                0
+                                                                                                            </option>
+                                                                                                            <option
+                                                                                                                value="1">
+                                                                                                                1
+                                                                                                            </option>
+                                                                                                            <option
+                                                                                                                value="2">
+                                                                                                                2
+                                                                                                            </option>
+                                                                                                            <% }else{%>
+
+                                                                                                                <option
+                                                                                                                    value="0">
+                                                                                                                    0
+                                                                                                                </option>
+                                                                                                                <option
+                                                                                                                    value="1">
+                                                                                                                    1
+                                                                                                                </option>
+                                                                                                                <option
+                                                                                                                    value="2">
+                                                                                                                    2
+                                                                                                                </option>
+                                                                                                                <option
+                                                                                                                    value="3">
+                                                                                                                    3
+                                                                                                                </option>
+
+                                                                                                                <% }%>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                                <%}%>
+
+                                        </div>
+                                        <%if (product.category=="instruction manual & leaflet" ) { %>
+                                            <div class=" v_center customization_value_option ">
+
+                                                <div class="customization_value_inputs no_of_color">
+                                                    <label class="customization_name" for="no_of_color">number of
+                                                        printed
+                                                        face</label>
+
+                                                    <select name="no_of_printed_face" id="face_printing"
+                                                        class="customization_input_text">
+                                                        <option value="single side printing">single side printing
+                                                        </option>
+                                                        <option value="both side printing">both side printing</option>
+                                                    </select>
+
+                                                </div>
+
+                                            </div>
+                                            <div class=" v_center customization_value_option ">
+
+                                                <div class="customization_value_inputs no_of_folds">
+                                                    <label class="customization_name" for="no_of_folds">number of
+                                                        folds</label>
+                                                    <select name="no_of_folds" id="no_of_folds"
+                                                        class="customization_input_text">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+
+                                                </div>
+
+                                            </div>
+                                            <% }%>
+                                    </div>
+                                    <%if (product.category=="folded carton" || product.category=="corrugated " ||
+                                        product.category=="label & sticker" ) { %>
+                                        <%if (product.title=="roll sticker" || product.title=="paper label" ) { %>
+                                            <% }else{%>
+
+                                                <div id="coating_customization" class="customization_info_section">
+                                                    <div class="product_customization_header">
+                                                        <h1 class="secondary_heading">coating</h1>
+                                                    </div>
+                                                    <div class=" v_center customization_value_option ">
+                                                        <div class="customization_value_inputs coating">
+                                                            <label id="lamination" class="optional_item">
+                                                                <input type="checkbox" value="lamination" name="coating"
+                                                                    class="input_checkbox">
+                                                                <span class="option_name">lamination</span>
+                                                            </label>
+                                                            <label id="uv-drip off" class="optional_item">
+                                                                <input type="checkbox" value="Uv-drip off"
+                                                                    name="coating" class="input_checkbox">
+                                                                <span class="option_name">Uv-drip off</span>
+                                                            </label>
+                                                            <label id="full_uv_gloss" class="optional_item">
+                                                                <input type="checkbox" value="full uv gloss"
+                                                                    name="coating" class="input_checkbox">
+                                                                <span class="option_name">full uv gloss</span>
+                                                            </label>
+                                                            <label id="matte" class="optional_item">
+                                                                <input type="checkbox" value="matte" name="coating"
+                                                                    class="input_checkbox">
+                                                                <span class="option_name">matte</span>
+                                                            </label>
+                                                            <%if (product.title=="sticker" ) { %>
+
+                                                                <% }else{%>
+
+                                                                    <label id="varnish" class="optional_item">
+                                                                        <input type="checkbox" value="varnish"
+                                                                            name="coating" class="input_checkbox">
+                                                                        <span class="option_name">varnish</span>
+
+                                                                    </label>
+                                                                    <% }%>
+                                                                        <label id="matte_spot_uv" class="optional_item">
+                                                                            <input type="checkbox"
+                                                                                value="matte + spot uv" name="coating"
+                                                                                class="input_checkbox">
+                                                                            <span class="option_name">matte + spot
+                                                                                uv</span>
+                                                                        </label>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% }%>
+                                                    <% }%>
+                                                        <div id="quantity_customization"
+                                                            class="customization_info_section">
+                                                            <div class="product_customization_header">
+                                                                <h1 class="secondary_heading">quantity</h1>
+                                                            </div>
+                                                            <div class=" v_center customization_value_option ">
+                                                                <div class="customization_value_inputs quantity">
+                                                                    <label class="customization_name"
+                                                                        for="quantity">enter
+                                                                        quantitiy</label>
+                                                                    <input type="text" name="quantity" id="quantity"
+                                                                        class="customization_input_text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <%if (product.category=="folded carton" ||
+                                                            product.category=="corrugated " ) { %>
+                                                            <div id="optional_customization"
+                                                                class="customization_info_section">
+                                                                <div class="product_customization_header">
+                                                                    <h1 class="secondary_heading">optional</h1>
+                                                                </div>
+                                                                <div class=" v_center customization_value_option ">
+                                                                    <div class="customization_value_inputs quantity">
+
+                                                                        <label id="foil_stamping" class="optional_item">
+                                                                            <input type="checkbox"
+                                                                                name="optional_customization"
+                                                                                value="foil stamping"
+                                                                                class="input_checkbox">
+                                                                            <span class="option_name">foil
+                                                                                stamping</span>
+                                                                        </label>
+
+                                                                        <label id="embossing" class="optional_item">
+                                                                            <input type="checkbox"
+                                                                                name="optional_customization"
+                                                                                value="embossing"
+                                                                                class="input_checkbox">
+                                                                            <span class="option_name">embossing</span>
+                                                                        </label>
+                                                                        <label id="dembossing" class="optional_item">
+                                                                            <input type="checkbox"
+                                                                                name="optional_customization"
+                                                                                value="dembossing"
+                                                                                class="input_checkbox">
+                                                                            <span class="option_name">dembossing</span>
+                                                                        </label>
+                                                                        <label id="perforation" class="optional_item">
+                                                                            <input type="checkbox"
+                                                                                name="optional_customization"
+                                                                                value="perforation"
+                                                                                class="input_checkbox">
+                                                                            <span class="option_name">perforation</span>
+                                                                        </label>
+                                                                        <label id="window_patch" class="optional_item">
+                                                                            <input type="checkbox"
+                                                                                name="optional_customization"
+                                                                                value="window patch"
+                                                                                class="input_checkbox">
+                                                                            <span class="option_name">window
+                                                                                patch</span>
+                                                                        </label>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <% }%>
+                                                                <%if (product.title=="roll sticker" ) { %>
+                                                                    <div id="optional_customization"
+                                                                        class="customization_info_section">
+                                                                        <div class="product_customization_header">
+                                                                            <h1 class="secondary_heading">optional</h1>
+                                                                        </div>
+                                                                        <div
+                                                                            class=" v_center customization_value_option ">
+                                                                            <div
+                                                                                class="customization_value_inputs quantity">
+
+                                                                                <label id="foil_stamping"
+                                                                                    class="optional_item">
+                                                                                    <input type="checkbox"
+                                                                                        name="optional_customization"
+                                                                                        value="foil stamping"
+                                                                                        class="input_checkbox">
+                                                                                    <span class="option_name">foil
+                                                                                        stamping</span>
+                                                                                </label>
+                                                                                <label id="full_uv_gloss"
+                                                                                    class="optional_item">
+                                                                                    <input type="checkbox"
+                                                                                        value="full uv gloss"
+                                                                                        name="optional_customization"
+                                                                                        class="input_checkbox">
+                                                                                    <span class="option_name">full uv
+                                                                                        gloss</span>
+                                                                                </label>
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <% }%>
+                                                                        <%if (product.title=="paper label" ) { %>
+                                                                            <div id="optional_customization"
+                                                                                class="customization_info_section">
+                                                                                <div
+                                                                                    class="product_customization_header">
+                                                                                    <h1 class="secondary_heading">
+                                                                                        optional
+                                                                                    </h1>
+                                                                                </div>
+                                                                                <div
+                                                                                    class=" v_center customization_value_option ">
+                                                                                    <div
+                                                                                        class="customization_value_inputs quantity">
+
+                                                                                        <label id="foil_stamping"
+                                                                                            class="optional_item">
+                                                                                            <input type="checkbox"
+                                                                                                name="optional_customization"
+                                                                                                value="foil stamping"
+                                                                                                class="input_checkbox">
+                                                                                            <span
+                                                                                                class="option_name">foil
+                                                                                                stamping</span>
+                                                                                        </label>
+
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <% }%>
+                                                                                <%if (product.category=="folded carton"
+                                                                                    || product.category=="corrugated " )
+                                                                                    { %>
+                                                                                    <div id="optional_finishing_customization"
+                                                                                        class="customization_info_section">
+                                                                                        <div
+                                                                                            class="product_customization_header">
+                                                                                            <h1
+                                                                                                class="secondary_heading">
+                                                                                                optional
+                                                                                                finish
+                                                                                                packaging</h1>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class=" v_center customization_value_option ">
+                                                                                            <div
+                                                                                                class="customization_value_inputs optional_finishing_packaging">
+                                                                                                <label id="four_fold"
+                                                                                                    class="optional_item">
+                                                                                                    <input
+                                                                                                        type="checkbox"
+                                                                                                        name="optional_finishing_packaging"
+                                                                                                        value="four fold"
+                                                                                                        class="input_checkbox">
+                                                                                                    <span
+                                                                                                        class="option_name">four
+                                                                                                        fold</span>
+                                                                                                </label>
+                                                                                                <label id="regular"
+                                                                                                    class="optional_item">
+                                                                                                    <input
+                                                                                                        type="checkbox"
+                                                                                                        name="optional_finishing_packaging"
+                                                                                                        value="regular"
+                                                                                                        class="input_checkbox">
+                                                                                                    <span
+                                                                                                        class="option_name">regular
+                                                                                                    </span>
+                                                                                                </label>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <% }%>
+                                                                                        <%if (user) { %>
+                                                                                            <button type="button"
+                                                                                                data-product="<%=JSON.stringify(product)%>"
+                                                                                                id="request_quote_btn"
+                                                                                                class="primary_btn">request
+                                                                                                a
+                                                                                                quote</button>
+
+                                                                                            <% } else { %>
+                                                                                                <button type="button"
+                                                                                                    id="request_quote_btn"
+                                                                                                    class="primary_btn"><a
+                                                                                                        href="/login">login
+                                                                                                        to
+                                                                                                        continue</a></button>
+                                                                                                <%}%>
+
+                                                                                                    <!-- css for coruugation  -->
+
+                                                                                                    <%if (product.category=="corrugated "
+                                                                                                        ) { %>
+                                                                                                        <link
+                                                                                                            rel="stylesheet"
+                                                                                                            href="/css/cgproduct_correct.css">
+
+                                                                                                        <%}else{%>
+                                                                                                            <link
+                                                                                                                rel="stylesheet"
+                                                                                                                href="/css/product_correct.css">
+                                                                                                            <%}%>
+
+                </form>
+                <form action="/uploads/<%= randomToken %>/<%= product.category %>/<%= product.unicode %>" method="POST"
+                    enctype="multipart/form-data" id="fileuploadForm">
+                    <input type="file" name="designs" id="files" data-randomToken="<%= randomToken %>" multiple />
+                    <input type="submit" style="display: none" class="fileuploadBtn">
+                </form>
+
+            </div>
+        </div>
+        <% })%>
+
+
+
+</section>
+
+<script>
+
+
+    // product page corasole 
+
+    function product_img(smallImg) {
+        var fullImg = document.getElementById("imageBox")
+        fullImg.src = smallImg.src
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>

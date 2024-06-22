@@ -1,0 +1,27 @@
+_id,title,subname,category,unicode,description
+5ff8a16558594812f86d3aa1,reverse tuck end box,false,folded carton,ptt:fc001,false
+5ff8a16558594812f86d3aa2,tuck end auto bottom box,bottom pasting,folded carton,ptt:fc002,false
+5ff8a16558594812f86d3aa3,tuck end lock bottom box,lock bottom,folded carton,ptt:fc003,false
+5ff8a16558594812f86d3aa4,full flap auto bottom box,false,folded carton,ptt:fc004,false
+5ff8a16558594812f86d3aa6,six corner box,false,folded carton,ptt:fc005,false
+5ff8a16558594812f86d3aa7,hexagonal box,false,folded carton,ptt:fc006,false
+5ff8a16558594812f86d3aa8,self lock cake box,false,folded carton,ptt:fc007,false
+5ff8a16558594812f86d3aa9,cube shaped corner corrier box,false,folded carton,ptt:fc008,false
+5ff8a16558594812f86d3aaa,prism shaped box,false,folded carton,ptt:fc09,false
+5ff8a16558594812f86d3aab,hanger box,auto lock / lock bottom,folded carton,ptt:fc010,false
+5ff8a16558594812f86d3aac,customized window box,false,folded carton,ptt:fc011,false
+5ff8a16558594812f86d3aad,collapsible 4 corner tray and lid box,false,folded carton,ptt:fc012,false
+5ff8a16558594812f86d3aaf,seal end box,false,folded carton,ptt:fc013,false
+5ff8a16558594812f86d3ab0,reverse tuck end lock box,false,folded carton,ptt:fc014,false
+5ff8a16558594812f86d3ab1,top collar box ,false,folded carton,ptt:fc015,false
+5ff8a16558594812f86d3ab2,bottom collar box,false,folded carton,ptt:fc016,false
+5ff8a16558594812f86d3ab3,regular auto tray lid,false,folded carton,ptt:fc017,false
+5ff8a16558594812f86d3ab4,sticker,false,label & sticker,ptt:ls001,false
+5ff8a16558594812f86d3ab5,roll sticker,die cut,label & sticker,ptt:ls002,false
+5ff8a16558594812f86d3ab6,paper label,regular cut,label & sticker,ptt:ls003,false
+5ff8a16558594812f86d3ab7,tab lock roll end corrugated box,false,corrugated ,ptt:cg001,false
+5ff8a16558594812f86d3ab9,pizza box,false,corrugated ,ptt:cg002,false
+5ff8a16558594812f86d3aba,6 corner corrugated box,false,corrugated ,ptt:cg003,false
+5ff8a16558594812f86d3abb,corrugated shipper box,outer box,corrugated ,ptt:cg004,false
+5ff8a16558594812f86d3abc,regular box,both side tuck end / lock bottom,corrugated ,ptt:cg005,false
+5ff8a16558594812f86d3abd,instruction manual or leaflet,false,instruction manual & leaflet,ptt:iml:001,false

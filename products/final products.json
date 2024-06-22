@@ -1,0 +1,235 @@
+[{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aa1"
+  },
+  "title": "reverse tuck end box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc001",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aa2"
+  },
+  "title": "tuck end auto bottom box",
+  "subname": "bottom pasting",
+  "category": "folded carton",
+  "unicode": "ptt:fc002",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aa3"
+  },
+  "title": "tuck end lock bottom box",
+  "subname": "lock bottom",
+  "category": "folded carton",
+  "unicode": "ptt:fc003",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aa4"
+  },
+  "title": "full flap auto bottom box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc004",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aa6"
+  },
+  "title": "six corner box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc005",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aa7"
+  },
+  "title": "hexagonal box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc006",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aa8"
+  },
+  "title": "self lock cake box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc007",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aa9"
+  },
+  "title": "cube shaped corner corrier box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc008",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aaa"
+  },
+  "title": "prism shaped box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc09",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aab"
+  },
+  "title": "hanger box",
+  "subname": "auto lock / lock bottom",
+  "category": "folded carton",
+  "unicode": "ptt:fc010",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aac"
+  },
+  "title": "customized window box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc011",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aad"
+  },
+  "title": "collapsible 4 corner tray and lid box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc012",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aaf"
+  },
+  "title": "seal end box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc013",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3ab0"
+  },
+  "title": "reverse tuck end lock box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc014",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3ab1"
+  },
+  "title": "top collar box ",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc015",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3ab2"
+  },
+  "title": "bottom collar box",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc016",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3ab3"
+  },
+  "title": "regular auto tray lid",
+  "subname": "",
+  "category": "folded carton",
+  "unicode": "ptt:fc017",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3ab4"
+  },
+  "title": "sticker",
+  "subname": "",
+  "category": "label & sticker",
+  "unicode": "ptt:ls001",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3ab5"
+  },
+  "title": "roll sticker",
+  "subname": "die cut",
+  "category": "label & sticker",
+  "unicode": "ptt:ls002",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3ab6"
+  },
+  "title": "paper label",
+  "subname": "regular cut",
+  "category": "label & sticker",
+  "unicode": "ptt:ls003",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3ab7"
+  },
+  "title": "tab lock roll end corrugated box",
+  "subname": "",
+  "category": "corrugated ",
+  "unicode": "ptt:cg001",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3ab9"
+  },
+  "title": "pizza box",
+  "subname": "",
+  "category": "corrugated ",
+  "unicode": "ptt:cg002",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3aba"
+  },
+  "title": "6 corner corrugated box",
+  "subname": "",
+  "category": "corrugated ",
+  "unicode": "ptt:cg003",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3abb"
+  },
+  "title": "corrugated shipper box",
+  "subname": "outer box",
+  "category": "corrugated ",
+  "unicode": "ptt:cg004",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3abc"
+  },
+  "title": "regular box",
+  "subname": "both side tuck end / lock bottom",
+  "category": "corrugated ",
+  "unicode": "ptt:cg005",
+  "description": ""
+},{
+  "_id": {
+    "$oid": "5ff8a16558594812f86d3abd"
+  },
+  "title": "instruction manual or leaflet",
+  "subname": "",
+  "category": "instruction manual & leaflet",
+  "unicode": "ptt:iml:001",
+  "description": ""
+}]

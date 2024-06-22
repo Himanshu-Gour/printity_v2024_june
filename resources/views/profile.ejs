@@ -1,0 +1,99 @@
+<section id="profile" class="universal_grid ">
+  <div id="profile_content">
+
+    <form action="/profile" method="POST">
+      <div class="profile_section_adjestment border_bottom " id="profile_detail">
+        <h1 class="secondary_heading_underline">
+          profile detail&nbsp;&nbsp;
+        </h1>
+        <div id="email_container">
+          <div id="email_detail">
+            <h1 class="info_heading">email id</h1>
+            <input type="email" placeholder="youremail@gmail.com" id="email_id" />
+            <button class="change_email">change</button>
+          </div>
+          <div id="profile_img">
+            <img src="/images/logo/ptt logo light.png" alt="" />
+          </div>
+        </div>
+        <div id="profile_info">
+          <h1 class="info_heading">full name</h1>
+          <input type="text" name="fullName" id="full_name" class="detail_input" placeholder="enter your name" />
+          <h1 class="info_heading">company name</h1>
+          <input type="text" name="companyName" id="company_name" class="detail_input"
+            placeholder="enter your company name" />
+          <h1 class="info_heading">gST number</h1>
+          <input type="text" name="gstNumber" id="gst number" class="detail_input"
+            placeholder="enter your gST number" />
+          <!-- <input type="submit" value="save" class="primary_btn" /> -->
+
+        </div>
+      </div>
+      <div class="profile_section_adjestment border_bottom " id="company_address">
+        <h1 class="secondary_heading_underline">
+          contact information&nbsp;&nbsp;
+        </h1>
+        <div id="contact_information">
+
+          <h1 class="info_heading">phone number</h1>
+          <input type="text" name="phoneNumber" id="phone_number" class="detail_input"
+            placeholder="enter your phone number" />
+          <h1 class="info_heading">landline number</h1>
+          <input type="text" name="landlineNumber" id="landline_number" class="detail_input"
+            placeholder="enter your landline number" />
+          <div class="addresses">
+            <h1 class="secondary_heading_underline">
+              company address &nbsp;&nbsp;
+            </h1>
+            <input type="text" name="companyAddress" id="company_address" class="detail_input"
+              placeholder="enter your company address" />
+            <div class="state_city">
+              <div class="state_input">
+                <h1 class="info_heading">state/region</h1>
+                <input type="text" name="companyState " id="company_state" placeholder="enter your state name" />
+              </div>
+              <div class="city_input">
+                <h1 class="info_heading">city</h1>
+                <input type="text" name="companyCity" id="company_city" class="city_input"
+                  placeholder="enter your city name" />
+              </div>
+            </div>
+            <h1 class="info_heading">zip postal / code</h1>
+            <input type="text" name="companyZipCode" id="zip_code" class="detail_input"
+              placeholder="enter zip code or postal code" />
+          </div>
+          <!-- <input type="submit" value="save" class="primary_btn" /> -->
+
+        </div>
+      </div>
+      <div class="profile_section_adjestment" id="shipping_address">
+        <div id="contact_information">
+
+          <div class="addresses">
+            <h1 class="secondary_heading_underline">
+              shipping address &nbsp;&nbsp;
+            </h1>
+            <input type="text" name="company_shipping_address" id="shipping_address_val" class="detail_input"
+              placeholder="enter your shipping address" />
+            <div class="state_city">
+              <div class="state_input">
+                <h1 class="info_heading">state/region</h1>
+                <input type="text" name="shipping_state" id="shipping_state" placeholder="enter your state name" />
+              </div>
+              <div class="city_input">
+                <h1 class="info_heading">city</h1>
+                <input type="text" name="shipping_city" id="shipping_city" class="city_input"
+                  placeholder="enter your city name" />
+              </div>
+            </div>
+            <h1 class="info_heading">zip postal / code</h1>
+            <input type="text" name="shippingZipCode" id="shipping_zip_code" class="detail_input"
+              placeholder="enter zip code or postal code" />
+          </div>
+          <input type="submit" value="save" class="primary_btn" />
+
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

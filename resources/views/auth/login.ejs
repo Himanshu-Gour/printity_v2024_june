@@ -1,0 +1,40 @@
+<body>
+  <section id="login">
+    <a class="go_back_cta" href="/"><i class="fas fa-arrow-left"></i> Home </a>
+    <img class="auth_background_img" src="/images/svg/auth/login.svg" alt="login to printity">
+    <h1 class="auth_logo">print<span style="color: #43A047;">it</span>y</h1>
+
+    <form action="/login" method="POST" class="auth_form">
+      <h1 class="primary_heading">log in</h1>
+      <% if(messages.error) { %>
+        <span class="text-red-500 text-sm">
+          <%= messages.error %>
+
+        </span>
+        <% } %>
+        <% if(messages.success) { %>
+        <span class="text-red-500 text-sm" style="color: #43a047">
+          <%= messages.success %>
+        </span>
+        <% } %>
+
+          <input class="auth_input" name="email" placeholder="Enter Your Email" value="<%= messages.email  %>"
+            type="text">
+          <input class="auth_input" name="password" placeholder="Enter Your Password" type="password">
+          <div class="auth_option v_center">
+            <a href="/forgot_password">
+              <p class="secondary_para">
+                Forget Password ?
+              </p>
+            </a>
+            <p class="secondary_para">
+              Don't have an account ? <a href="/signup"><span style="color: #43A047;">Sign Up</span></a>
+            </p>
+          </div>
+          <button type="submit" class="primary_btn">Login</button>
+    </form>
+  </section>
+
+  <script src="../js/app.js"></script>
+
+</body>
