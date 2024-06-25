@@ -191,8 +191,18 @@ function customerController() {
       });
     },
     async catlog(req, res) {
+
       const product_category = await category.find();
       const product_detail = await Product.find();
+
+
+      if (product_category.length === 0) {
+        console.log("No categories found");
+      } else {
+        product_category.forEach((category) => {
+          console.log("Category name:", category.name);
+        });
+      }
       return res.render("customer/catlog", {
         category: product_category,
         product: product_detail,
@@ -200,6 +210,7 @@ function customerController() {
         description: description_Congif().catlog,
         keyword: keyword_config().catlog,
       });
+
     },
     categoryname(req, res, next) {
       // let categoryname = JSON.stringify(req.params);

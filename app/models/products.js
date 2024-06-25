@@ -30,7 +30,7 @@ var ProductSchema = new Schema({
   // },
   // image: {
   //   type: String,
-  // todo adding image required option
+  //   // todo adding image required option
   // },
 });
 

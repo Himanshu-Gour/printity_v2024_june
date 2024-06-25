@@ -27,40 +27,23 @@ mongoose.Promise = global.Promise;
 
 // Connect MongoDB at default port 27017.
 const url = process.env.MONGO_CONNECTION_URL;
-// mongoose.connect(url, {
-//   useNewUrlParser: true,
-//   useCreateIndex: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: true,
-// });
+mongoose.connect(url, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
 
+});
 
-// const connection = mongoose.connection;
-
-// connection.once("open", () => {
-//     console.log("Database connected...");
-//   })
-//   .catch((err) => {
-//     console.log("Connection failed...");
-// });
 
 const connection = mongoose.connection;
 
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+connection.once("open", () => {
+  console.log("Database connected...");
 })
-  .then(() => {
-    console.log("Database connected...");
-    const connection = mongoose.connection;
-    connection.once("open", () => {
-      console.log("Connection to the database is open...");
-    });
-  })
   .catch((err) => {
-    console.log("Connection failed...", err);
+    console.log("Connection failed...");
   });
-
 
 
 // Session store
